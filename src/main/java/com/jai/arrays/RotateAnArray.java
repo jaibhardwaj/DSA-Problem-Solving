@@ -39,7 +39,7 @@ public class RotateAnArray
 	}
 
 	/**
-	 * this function first reverses < k part, then reverse > k part,
+	 * In this function first reverses < k part, then reverse > k part,
 	 * then reverse all the array
 	 * @param arr array
 	 * @param k amount of rotation
