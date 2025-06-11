@@ -14,11 +14,11 @@ public class Pattern9
 	 * All other positions are filled with spaces.
 	 * <p>
 	 * Example for n = 5:
-	 * *   *
-	 * * *
-	 * *
-	 * * *
-	 * *   *
+	 * *       *
+	 *   *   *
+	 * 	   *
+	 *   *   *
+	 * *       *
 	 *
 	 * @param n the size of the pattern (number of rows and columns)
 	 */
