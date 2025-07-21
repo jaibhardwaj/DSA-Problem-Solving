@@ -29,9 +29,9 @@ public class MazaPathsWithJump
 
 		// horizontal moves
 		// We can move horizontally from the current column to the destination column
-		for( int ms = 0; ms <= dc - sc; ms++ )
+		for( int ms = 1; ms <= dc - sc; ms++ )
 		{
-			ArrayList<String> hPaths = getPaths(sr, sc + 1, dr, dc);
+			ArrayList<String> hPaths = getPaths(sr, sc + ms, dr, dc);
 			for( String path : hPaths )
 			{
 				paths.add("h" + ms + path);
@@ -40,9 +40,9 @@ public class MazaPathsWithJump
 
 		// vertical moves
 		// We can move vertically from the current row to the destination row
-		for( int ms = 0; ms <= dr - sr; ms++ )
+		for( int ms = 1; ms <= dr - sr; ms++ )
 		{
-			ArrayList<String> vPaths = getPaths(sr + 1, sc, dr, dc);
+			ArrayList<String> vPaths = getPaths(sr + ms, sc, dr, dc);
 			for( String path : vPaths )
 			{
 				paths.add("v" + ms + path);
@@ -51,9 +51,9 @@ public class MazaPathsWithJump
 
 		// diagonal moves
 		// We can move diagonally from the current position to the destination position
-		for( int ms = 0; ms <= Math.min(dr - sr, dc - sc); ms++ )
+		for( int ms = 1; ms <= Math.min(dr - sr, dc - sc); ms++ )
 		{
-			ArrayList<String> dPaths = getPaths(sr + 1, sc + 1, dr, dc);
+			ArrayList<String> dPaths = getPaths(sr + ms, sc + ms, dr, dc);
 			for( String path : dPaths )
 			{
 				paths.add("d" + ms + path);
