@@ -53,7 +53,7 @@ public class QuickSort
 		quickSort(arr, partitionIndex + 1, high); // Recursively sort the right sub-array
 	}
 
-	private static int partition(int[] arr, int low, int high, int pivot)
+	public static int partition(int[] arr, int low, int high, int pivot)
 	{
 		int i = low;
 		int j = low;
