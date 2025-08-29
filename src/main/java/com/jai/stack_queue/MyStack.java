@@ -1,4 +1,4 @@
-package com.jai.stack;
+package com.jai.stack_queue;
 
 /**
  * A simple integer stack implementation with dynamic resizing.

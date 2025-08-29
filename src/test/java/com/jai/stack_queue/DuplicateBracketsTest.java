@@ -1,4 +1,4 @@
-package com.jai.stack;
+package com.jai.stack_queue;
 
 import org.junit.jupiter.api.Test;
 
