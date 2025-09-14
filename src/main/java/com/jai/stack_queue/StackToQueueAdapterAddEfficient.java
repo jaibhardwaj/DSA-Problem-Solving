@@ -2,12 +2,12 @@ package com.jai.stack_queue;
 
 import java.util.Stack;
 
-public class StackToQueueAdapterRemoveEfficient
+public class StackToQueueAdapterAddEfficient
 {
 	private final Stack<Integer> mainS;
 	private final Stack<Integer> helperS;
 
-	public StackToQueueAdapterRemoveEfficient()
+	public StackToQueueAdapterAddEfficient()
 	{
 		mainS = new Stack<>();
 		helperS = new Stack<>();
@@ -20,17 +20,7 @@ public class StackToQueueAdapterRemoveEfficient
 
 	public void add(int val)
 	{
-		while(!mainS.isEmpty())
-		{
-			helperS.push(mainS.pop());
-		}
-
 		mainS.push(val);
-
-		while(!helperS.isEmpty())
-		{
-			mainS.push(helperS.pop());
-		}
 	}
 
 	public int remove()
@@ -41,7 +31,19 @@ public class StackToQueueAdapterRemoveEfficient
 			return -1;
 		}
 
-		return mainS.pop();
+		while(!mainS.isEmpty())
+		{
+			helperS.push(mainS.pop());
+		}
+
+		int front = helperS.pop();
+
+		while(!helperS.isEmpty())
+		{
+			mainS.push(helperS.pop());
+		}
+
+		return front;
 	}
 
 	public int peek()
@@ -52,6 +54,18 @@ public class StackToQueueAdapterRemoveEfficient
 			return -1;
 		}
 
-		return mainS.peek();
+		while(!mainS.isEmpty())
+		{
+			helperS.push(mainS.pop());
+		}
+
+		int front = helperS.peek();
+
+		while(!helperS.isEmpty())
+		{
+			mainS.push(helperS.pop());
+		}
+
+		return front;
 	}
 }
