@@ -205,7 +205,69 @@ public class MyLinkedList
             size--;
         }
     }
+
+    public void reverseDI()
+    {
+        if( size <= 1 )
+        {
+            return;
+        }
+
+        int left = 0;
+        int right = size - 1;
+
+        while( left < right )
+        {
+            Node leftNode = getNodeAt(left);
+            Node rightNode = getNodeAt(right);
+
+            int temp = leftNode.data;
+            leftNode.data = rightNode.data;
+            rightNode.data = temp;
+
+            left++;
+            right--;
+        }
+    }
+
+    public void reversePI()
+    {
+        if( size <= 1 )
+        {
+            return;
+        }
+
+        Node prev = null;
+        Node curr = head;
+
+        while( curr != null )
+        {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        // Swap head and tail
+        Node temp = head;
+        head = tail;
+        tail = temp;
+    }
     
+    private Node getNodeAt(int idx)
+    {
+        if (idx < 0 || idx >= size)
+        {
+            throw new IndexOutOfBoundsException("Invalid index: " + idx);
+        }
+        Node temp = head;
+        for (int i = 0; i < idx; i++)
+        {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
     private static class Node
     {
         int data;
