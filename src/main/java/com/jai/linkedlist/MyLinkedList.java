@@ -104,6 +104,107 @@ public class MyLinkedList
             return temp.data;
         }
     }
+
+    public void addFirst(int val)
+    {
+        Node node = new Node();
+        node.data = val;
+
+        if( size == 0 )
+        {
+            head = tail = node;
+        }
+        else
+        {
+            node.next = head;
+            head = node;
+        }
+        size++;
+    }
+
+    public void addAt(int idx, int val)
+    {
+        if( idx < 0 || idx > size )
+        {
+            System.out.println("Invalid arguments");
+            return;
+        }
+        else if( idx == 0 )
+        {
+            addFirst(val);
+        }
+        else if( idx == size )
+        {
+            addLast(val);
+        }
+        else
+        {
+            Node node = new Node();
+            node.data = val;
+
+            Node temp = head;
+            for( int i = 0; i < idx - 1; i++ )
+            {
+                temp = temp.next;
+            }
+            node.next = temp.next;
+            temp.next = node;
+            size++;
+        }
+    }
+
+    public void removeLast()
+    {
+        if( size == 0 )
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        else if( size == 1 )
+        {
+            head = tail = null;
+            size = 0;
+            return;
+        }
+        else
+        {
+            Node temp = head;
+            for( int i = 0; i < size - 2; i++ )
+            {
+                temp = temp.next;
+            }
+            temp.next = null;
+            tail = temp;
+            size--;
+        }
+    }
+
+    public void removeAt(int idx)
+    {
+        if( idx < 0 || idx >= size )
+        {
+            System.out.println("Invalid arguments");
+            return;
+        }
+        else if( idx == 0 )
+        {
+            removeFirst();
+        }
+        else if( idx == size - 1 )
+        {
+            removeLast();
+        }
+        else
+        {
+            Node temp = head;
+            for( int i = 0; i < idx - 1; i++ )
+            {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+            size--;
+        }
+    }
     
     private static class Node
     {
