@@ -2,8 +2,8 @@ package com.jai.linkedlist;
 
 public class MyLinkedList 
 {
-    private Node head;
-    private Node tail;
+    Node head;
+    Node tail;
     private int size;
 
     public void addLast(int val)
@@ -268,7 +268,7 @@ public class MyLinkedList
         return temp;
     }
 
-    private static class Node
+    public static class Node
     {
         int data;
         Node next;
