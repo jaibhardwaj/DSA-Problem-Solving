@@ -23,6 +23,38 @@ public class MyLinkedList
         size++;
     }
 
+    public void removeDuplicates() 
+    {
+        if (head == null) 
+        {
+            return; // Empty list, nothing to do
+        }
+
+        Node current = head;
+
+        while (current != null && current.next != null) 
+        {
+            if (current.data == current.next.data) 
+            {
+                // Duplicate found, skip the next node
+                current.next = current.next.next;
+                decrementSize(); // Decrease size as we removed a node
+            } 
+            else 
+            {
+                current = current.next; // Move to the next node
+            }
+        }
+
+        // Update tail reference
+        tail = current;
+    }
+
+    public void decrementSize() 
+    {
+        size--;
+    }
+
     public int size()
     {
         return size;
