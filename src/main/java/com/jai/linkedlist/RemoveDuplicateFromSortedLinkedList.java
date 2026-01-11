@@ -16,7 +16,7 @@ public class RemoveDuplicateFromSortedLinkedList
 
         MyLinkedList.Node current = list.head;
 
-        while (current != null && current.next != null) 
+        while (current.next != null)
         {
             if (current.data == current.next.data) 
             {

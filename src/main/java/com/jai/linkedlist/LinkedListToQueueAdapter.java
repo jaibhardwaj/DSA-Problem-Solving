@@ -2,7 +2,7 @@ package com.jai.linkedlist;
 
 public class LinkedListToQueueAdapter 
 {
-    private MyLinkedList list;
+    private final MyLinkedList list;
 
     public LinkedListToQueueAdapter() 
     {

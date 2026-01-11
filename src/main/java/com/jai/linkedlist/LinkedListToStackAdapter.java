@@ -2,7 +2,7 @@ package com.jai.linkedlist;
 
 public class LinkedListToStackAdapter 
 {
-    private MyLinkedList list;
+    private final MyLinkedList list;
 
     public LinkedListToStackAdapter() 
     {

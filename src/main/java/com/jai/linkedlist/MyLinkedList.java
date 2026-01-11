@@ -4,7 +4,7 @@ public class MyLinkedList
 {
     Node head;
     Node tail;
-    private int size;
+    int size;
 
     public void addLast(int val)
     {
@@ -79,14 +79,12 @@ public class MyLinkedList
         if( size == 0 )
         {
             System.out.println("List is empty");
-            return;
-        }
+		}
         else if( size == 1 )
         {
             head = tail = null;
             size = 0;
-            return;
-        }
+		}
         else
         {
             head = head.next;
@@ -159,8 +157,7 @@ public class MyLinkedList
         if( idx < 0 || idx > size )
         {
             System.out.println("Invalid arguments");
-            return;
-        }
+		}
         else if( idx == 0 )
         {
             addFirst(val);
@@ -190,14 +187,12 @@ public class MyLinkedList
         if( size == 0 )
         {
             System.out.println("List is empty");
-            return;
-        }
+		}
         else if( size == 1 )
         {
             head = tail = null;
             size = 0;
-            return;
-        }
+		}
         else
         {
             Node temp = head;
@@ -216,8 +211,7 @@ public class MyLinkedList
         if( idx < 0 || idx >= size )
         {
             System.out.println("Invalid arguments");
-            return;
-        }
+		}
         else if( idx == 0 )
         {
             removeFirst();
