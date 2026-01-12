@@ -141,4 +141,18 @@ public class MyLinkedListTest
         String expectedOutput = "3 2 1 " + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    @Test
+    void testReverseLinkedListUsingRecursion() 
+    {
+        MyLinkedList list = new MyLinkedList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        list.reverseLinkedListUsingRecursion();
+
+        assertEquals("3 -> 2 -> 1 -> null", list.toString());
+        assertEquals(3, list.size());
+    }
 }

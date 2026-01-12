@@ -308,6 +308,29 @@ public class MyLinkedList
         System.out.print(node.data + " ");
     }
 
+    public void reverseLinkedListUsingRecursion()
+    {
+        reverseLinkedListUsingRecursionHelper(head);
+        // After recursion, the original head (which is now the tail) needs its next pointer set to null
+        head.next = null;
+        // Swap head and tail references
+        Node temp = head; // Store original head
+        head = tail;      // New head is the original tail
+        tail = temp;      // New tail is the original head
+    }
+
+    private void reverseLinkedListUsingRecursionHelper(Node node)
+    {
+        if (node == null )
+        {
+            return;
+        }
+        reverseLinkedListUsingRecursionHelper(node.next);
+        if(node != tail)
+        {
+            node.next.next = node;
+        }
+    }
     public static class Node
     {
         int data;
