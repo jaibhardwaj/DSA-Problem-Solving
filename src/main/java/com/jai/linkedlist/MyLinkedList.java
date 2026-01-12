@@ -294,6 +294,20 @@ public class MyLinkedList
         return temp;
     }
 
+    public void reverseDisplay()
+    {
+        reverseDisplayHelper(head);
+        System.out.println();
+    }
+
+    private void reverseDisplayHelper(Node node) {
+        if (node == null) {
+            return;
+        }
+        reverseDisplayHelper(node.next);
+        System.out.print(node.data + " ");
+    }
+
     public static class Node
     {
         int data;
