@@ -280,7 +280,7 @@ public class MyLinkedList
         tail = temp;
     }
     
-    private Node getNodeAt(int idx)
+    public Node getNodeAt(int idx)
     {
         if (idx < 0 || idx >= size)
         {
