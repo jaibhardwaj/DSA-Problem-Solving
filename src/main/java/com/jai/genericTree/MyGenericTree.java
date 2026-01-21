@@ -55,7 +55,7 @@ public class MyGenericTree
 
 		display(root);
 		System.out.println("Size of tree: " + size(root));
-
+		System.out.println("Max of tree: " + max(root));
 	}
 
 	public static void display(TreeNode node)
@@ -85,5 +85,19 @@ public class MyGenericTree
 		s += 1;
 
 		return s;
+	}
+
+	public static int max(TreeNode node)
+	{
+		int m = Integer.MIN_VALUE;
+
+		for (TreeNode child : node.children)
+		{
+			int cm = max(child);
+			m = Math.max(m, cm);
+		}
+		m = Math.max(m, node.data);
+
+		return m;
 	}
 }
