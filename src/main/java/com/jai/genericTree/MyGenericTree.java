@@ -30,7 +30,7 @@ public class MyGenericTree
 	public static void main(String[] args)
 	{
 		int[] arr = {10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1};
-		TreeNode root;
+		TreeNode root = null;
 		Stack<TreeNode> st = new Stack<>();
 		for (int i = 0; i < arr.length; i++)
 		{
@@ -53,5 +53,23 @@ public class MyGenericTree
 			}
 		}
 
+		display(root);
+
+	}
+
+	public static void display(TreeNode node)
+	{
+		StringBuilder str = new StringBuilder(node.data + " -> ");
+		for (TreeNode child : node.children)
+		{
+			str.append(child.data).append(", ");
+		}
+		str.append(".");
+		System.out.println(str);
+
+		for (TreeNode child : node.children)
+		{
+			display(child);
+		}
 	}
 }
