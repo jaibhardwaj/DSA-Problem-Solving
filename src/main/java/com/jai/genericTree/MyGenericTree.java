@@ -54,6 +54,7 @@ public class MyGenericTree
 		}
 
 		display(root);
+		System.out.println("Size of tree: " + size(root));
 
 	}
 
@@ -71,5 +72,18 @@ public class MyGenericTree
 		{
 			display(child);
 		}
+	}
+
+	public static int size(TreeNode node)
+	{
+		int s = 0;
+
+		for (TreeNode child : node.children)
+		{
+			s += size(child);
+		}
+		s += 1;
+
+		return s;
 	}
 }
