@@ -181,4 +181,42 @@ public class MyGenericTree
 			}
 		}
 	}
+
+	public static void levelOrderLinewiseZigZag(TreeNode node)
+	{
+		Stack<TreeNode> mainStack = new Stack<>();
+		Stack<TreeNode> childStack = new Stack<>();
+		mainStack.push(node);
+
+		int level = 1;
+		
+		while ( !mainStack.isEmpty() )
+		{
+			TreeNode curr = mainStack.pop();
+			System.out.print(curr.data + " ");
+
+			if ( level % 2 == 1 )
+			{
+				for (TreeNode child : curr.children)
+				{
+					childStack.push(child);
+				}
+			} 
+			else
+			{
+				for (int i = curr.children.size() - 1; i >= 0; i--)
+				{
+					childStack.push(curr.children.get(i));
+				}
+			}
+
+			if ( mainStack.isEmpty() )
+			{
+				System.out.println();
+				mainStack = childStack;
+				childStack = new Stack<>();
+				level++;
+			}
+		}
+	}
 }
