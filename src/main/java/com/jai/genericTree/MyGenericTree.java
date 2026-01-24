@@ -1,6 +1,8 @@
 package com.jai.genericTree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class MyGenericTree
@@ -59,6 +61,9 @@ public class MyGenericTree
 		System.out.println("Height of tree: " + height(root));
 		System.out.println("Tree Traversal:");
 		traverse(root);
+
+		System.out.println("Level Order Traversal:");
+		levelOrder(root);
 	}
 
 	public static void display(TreeNode node)
@@ -130,5 +135,22 @@ public class MyGenericTree
 		}
 
 		System.out.println("Node Post " + node.data);
+	}
+
+	public static void levelOrder(TreeNode node)
+	{
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(node);
+
+		while ( !queue.isEmpty() )
+		{
+			TreeNode curr = queue.poll();
+			System.out.print(curr.data + " ");
+
+			for (TreeNode child : curr.children)
+			{
+				queue.add(child);
+			}
+		}
 	}
 }
