@@ -64,6 +64,9 @@ public class MyGenericTree
 
 		System.out.println("Level Order Traversal:");
 		levelOrder(root);
+
+		System.out.println("\nLevel Order Line Wise Traversal:");
+		levelOrderLineWise(root);
 	}
 
 	public static void display(TreeNode node)
@@ -150,6 +153,31 @@ public class MyGenericTree
 			for (TreeNode child : curr.children)
 			{
 				queue.add(child);
+			}
+		}
+	}
+
+	public static void levelOrderLineWise(TreeNode node)
+	{
+		Queue<TreeNode> mainQueue = new LinkedList<>();
+		Queue<TreeNode> childQueue = new LinkedList<>();
+		mainQueue.add(node);
+
+		while ( !mainQueue.isEmpty() )
+		{
+			TreeNode curr = mainQueue.poll();
+			System.out.print(curr.data + " ");
+
+			for (TreeNode child : curr.children)
+			{
+				childQueue.add(child);
+			}
+
+			if ( mainQueue.isEmpty() )
+			{
+				System.out.println();
+				mainQueue = childQueue;
+				childQueue = new LinkedList<>();
 			}
 		}
 	}
