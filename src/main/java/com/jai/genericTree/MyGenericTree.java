@@ -67,6 +67,15 @@ public class MyGenericTree
 
 		System.out.println("\nLevel Order Line Wise Traversal:");
 		levelOrderLineWise(root);
+
+		System.out.println("\nLevel Order Line Wise Traversal 2:");
+		levelOrderLineWise2(root);
+
+		System.out.println("\nLevel Order Line Wise Traversal 3:");
+		levelOrderLineWise3(root);
+
+		System.out.println("\nLevel Order Line Wise Traversal 4:");
+		levelOrderLineWise4(root);
 	}
 
 	public static void display(TreeNode node)
@@ -216,6 +225,97 @@ public class MyGenericTree
 				mainStack = childStack;
 				childStack = new Stack<>();
 				level++;
+			}
+		}
+	}
+
+	public static void levelOrderLineWise2(TreeNode node)
+	{
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(node);
+		queue.add(null);
+
+		while ( !queue.isEmpty() )
+		{
+			TreeNode curr = queue.poll();
+
+			if ( curr == null )
+			{
+				System.out.println();
+				if ( !queue.isEmpty() )
+				{
+					queue.add(null);
+				}
+			} 
+			else
+			{
+				System.out.print(curr.data + " ");
+
+				for (TreeNode child : curr.children)
+				{
+					queue.add(child);
+				}
+			}
+		}
+	}
+
+	public static void levelOrderLineWise3(TreeNode node)
+	{
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(node);
+
+		while ( !queue.isEmpty() )
+		{
+			int size = queue.size();
+
+			for (int i = 0; i < size; i++)
+			{
+				TreeNode curr = queue.poll();
+				System.out.print(curr.data + " ");
+
+				for (TreeNode child : curr.children)
+				{
+					queue.add(child);
+				}
+			}
+			System.out.println();
+		}
+	}
+
+	private static final class Pair
+	{
+		TreeNode node;
+		int level;
+
+		Pair(TreeNode node, int level)
+		{
+			this.node = node;
+			this.level = level;
+		}
+	}
+
+	public static void levelOrderLineWise4(TreeNode node)
+	{
+		Queue<Pair> queue = new LinkedList<>();
+		queue.add(new Pair(node, 1));
+
+		int currLevel = 1;
+
+		while ( !queue.isEmpty() )
+		{
+			Pair p = queue.poll();
+
+			if ( p.level > currLevel )
+			{
+				currLevel = p.level;
+				System.out.println();
+			}
+
+			System.out.print(p.node.data + " ");
+
+			for (TreeNode child : p.node.children)
+			{
+				queue.add(new Pair(child, p.level + 1));
 			}
 		}
 	}
